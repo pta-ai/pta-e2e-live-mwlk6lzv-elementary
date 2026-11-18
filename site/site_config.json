@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "tenantId": "26102d58-e93a-4c86-af4a-638239fac68c",
+  "templateId": "field_guide",
+  "siteName": "E2E Live mwlk6lzv PTA",
+  "tagline": "We bring families, teachers and staff together so every student at our school thrives.",
+  "brand": {
+    "primaryColor": "#1d6f42",
+    "secondaryColor": "#f2c14e",
+    "fontHeading": "Poppins",
+    "fontBody": "Inter"
+  },
+  "contact": {
+    "email": "support+e2e-mwlk6lzv@pta.ai.harshit-garg.com",
+    "phone": "6145550142",
+    "address": "1200 Oak Street, Columbus, OH 43215"
+  },
+  "pages": [
+    {
+      "slug": "home",
+      "title": "Home",
+      "blocks": [
+        {
+          "id": "hero",
+          "type": "hero",
+          "heading": "E2E Live mwlk6lzv PTA",
+          "body": "We bring families, teachers and staff together so every student at our school thrives."
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "blocks": [
+        {
+          "id": "about",
+          "type": "section",
+          "heading": "About Us",
+          "body": "E2E Live mwlk6lzv PTA at E2E Live mwlk6lzv Elementary We bring families, teachers and staff together so every student at our school thrives."
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "blocks": [
+        {
+          "id": "contact",
+          "type": "cta",
+          "heading": "Contact",
+          "body": "Reach out for support and questions. Address: 1200 Oak Street, Columbus, OH 43215. Phone: 6145550142.",
+          "ctaText": "Email Us",
+          "ctaHref": "mailto:support+e2e-mwlk6lzv@pta.ai.harshit-garg.com"
+        }
+      ]
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy",
+      "blocks": [
+        {
+          "id": "privacy",
+          "type": "section",
+          "heading": "Privacy",
+          "body": "We respect your privacy and protect your information."
+        }
+      ]
+    },
+    {
+      "slug": "connect",
+      "title": "Connect",
+      "blocks": [
+        {
+          "id": "connect",
+          "type": "section",
+          "heading": "Follow Us",
+          "body": "Stay connected: https://facebook.com/e2e-live-pta"
+        }
+      ]
+    }
+  ]
+}
