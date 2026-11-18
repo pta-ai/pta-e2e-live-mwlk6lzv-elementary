@@ -1,0 +1,63 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      jobId:
+        description: 'PTA.AI Job ID'
+        required: true
+      releaseId:
+        description: 'PTA.AI Release ID'
+        required: true
+      tenantId:
+        description: 'PTA.AI Tenant ID'
+        required: true
+      commitSha:
+        description: 'Commit SHA to deploy'
+        required: true
+      environment:
+        description: 'Deployment Environment'
+        required: false
+        default: 'production'
+  push:
+    branches:
+      - main
+
+# Provisioning commits the site and then dispatches this workflow, so the push
+# trigger and the dispatch both fire for the same commit. GitHub Pages permits
+# one active deployment per environment, so without a concurrency group the
+# second run fails with a conflict and every provisioned repo shows a failed
+# check. Queue instead of cancelling: cancelling could abort a deployment that
+# is already live-bound.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.commitSha || github.sha }}
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
